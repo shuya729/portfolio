@@ -6,7 +6,6 @@ import {
 	ComposerPrimitive,
 	ErrorPrimitive,
 	MessagePrimitive,
-	SuggestionPrimitive,
 	ThreadListPrimitive,
 	ThreadPrimitive,
 	useAuiState,
@@ -125,28 +124,63 @@ const ThreadWelcome: FC = () => {
 	);
 };
 
+const SUGGESTIONS = [
+	{
+		prompt: "自己紹介を教えてください",
+		title: "自己紹介",
+		description: "プロフィールや経歴について",
+	},
+	{
+		prompt: "個人開発プロジェクトについて教えてください",
+		title: "個人開発",
+		description: "制作したアプリやサービスについて",
+	},
+	{
+		prompt: "使える技術スタックを教えてください",
+		title: "技術スタック",
+		description: "言語・フレームワーク・DB等",
+	},
+	{
+		prompt: "将来の目標やキャリアの軸を教えてください",
+		title: "将来像",
+		description: "就活軸や目指すエンジニア像",
+	},
+] as const;
+
 const ThreadSuggestions: FC = () => {
 	return (
 		<div className="aui-thread-welcome-suggestions grid w-full @md:grid-cols-2 gap-2 pb-4">
-			<ThreadPrimitive.Suggestions>
-				{() => <ThreadSuggestionItem />}
-			</ThreadPrimitive.Suggestions>
+			{SUGGESTIONS.map((suggestion, index) => (
+				<ThreadSuggestionItem key={suggestion.prompt} index={index} {...suggestion} />
+			))}
 		</div>
 	);
 };
 
-const ThreadSuggestionItem: FC = () => {
+const ThreadSuggestionItem: FC<{
+	prompt: string;
+	title: string;
+	description: string;
+	index: number;
+}> = ({ prompt, title, description, index }) => {
 	return (
-		<div className="aui-thread-welcome-suggestion-display fade-in slide-in-from-bottom-2 @md:nth-[n+3]:block nth-[n+3]:hidden animate-in fill-mode-both duration-200">
-			<SuggestionPrimitive.Trigger send asChild>
+		<div
+			className="aui-thread-welcome-suggestion-display fade-in slide-in-from-bottom-2 animate-in fill-mode-both duration-200"
+			style={{ animationDelay: `${index * 50}ms` }}
+		>
+			<ThreadPrimitive.Suggestion prompt={prompt} send asChild>
 				<Button
 					variant="ghost"
 					className="aui-thread-welcome-suggestion h-auto w-full @md:flex-col flex-wrap items-start justify-start gap-1 rounded-3xl border bg-background px-4 py-3 text-left text-sm transition-colors hover:bg-muted"
 				>
-					<SuggestionPrimitive.Title className="aui-thread-welcome-suggestion-text-1 font-medium" />
-					<SuggestionPrimitive.Description className="aui-thread-welcome-suggestion-text-2 text-muted-foreground empty:hidden" />
+					<span className="aui-thread-welcome-suggestion-text-1 font-medium">
+						{title}
+					</span>
+					<span className="aui-thread-welcome-suggestion-text-2 text-muted-foreground">
+						{description}
+					</span>
 				</Button>
-			</SuggestionPrimitive.Trigger>
+			</ThreadPrimitive.Suggestion>
 		</div>
 	);
 };
