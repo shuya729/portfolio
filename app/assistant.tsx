@@ -8,12 +8,15 @@ import {
 import { lastAssistantMessageIsCompleteWithToolCalls } from "ai";
 import { AppImageToolUIs } from "@/app/api/chat/tools/app-image-tool-ui";
 import { Thread } from "@/components/assistant-ui/thread";
+import { chatApiFetch, showChatErrorToast } from "@/lib/chat/chat-api-error";
 
 export const Assistant = () => {
 	const runtime = useChatRuntime({
+		onError: showChatErrorToast,
 		sendAutomaticallyWhen: lastAssistantMessageIsCompleteWithToolCalls,
 		transport: new AssistantChatTransport({
 			api: "/api/chat",
+			fetch: chatApiFetch,
 		}),
 	});
 
