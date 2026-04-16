@@ -28,8 +28,10 @@ import { MarkdownText } from "@/components/assistant-ui/markdown-text";
 import { Reasoning } from "@/components/assistant-ui/reasoning";
 import { ToolFallback } from "@/components/assistant-ui/tool-fallback";
 import { TooltipIconButton } from "@/components/assistant-ui/tooltip-icon-button";
+import { GitHubIcon } from "@/components/icons/github";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 export const Thread: FC = () => {
 	return (
@@ -77,6 +79,15 @@ const ThreadHeader: FC = () => {
 						Shuya&apos;s Portfolio
 					</Button>
 				</ThreadListPrimitive.New>
+				<Link
+					href="https://github.com/shuya729/portfolio"
+					target="_blank"
+					rel="noreferrer"
+					className="ml-auto inline-flex size-9 items-center justify-center rounded-md transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
+					aria-label="GitHub リポジトリを開く"
+				>
+					<GitHubIcon className="size-5" aria-hidden="true" />
+				</Link>
 			</header>
 		</AuiIf>
 	);
@@ -151,7 +162,11 @@ const ThreadSuggestions: FC = () => {
 	return (
 		<div className="aui-thread-welcome-suggestions grid w-full @md:grid-cols-2 gap-2 pb-4">
 			{SUGGESTIONS.map((suggestion, index) => (
-				<ThreadSuggestionItem key={suggestion.prompt} index={index} {...suggestion} />
+				<ThreadSuggestionItem
+					key={suggestion.prompt}
+					index={index}
+					{...suggestion}
+				/>
 			))}
 		</div>
 	);
