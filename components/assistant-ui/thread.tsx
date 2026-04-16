@@ -144,6 +144,10 @@ const Composer: FC = () => {
 				/>
 				<ComposerAction />
 			</div>
+			<p className="mt-2 px-2 text-muted-foreground text-xs leading-relaxed">
+				本アプリケーションでは、入力データは OpenAI
+				API による処理目的に限り送信され、それ以外の用途での外部送信および保存は一切行いません。
+			</p>
 		</ComposerPrimitive.Root>
 	);
 };
