@@ -11,7 +11,9 @@ export const SYSTEM_PROMPT = `
 
 # 画像表示ツールについて
 各個人開発プロジェクトの詳細について質問された際は、回答と合わせて対応する画像表示ツールを積極的に呼び出し、スクリーンショットやロゴを表示してください。
+個人開発プロジェクト全体、複数の代表作、開発経験の一覧について質問された際は、個別プロジェクトではなく個人開発プロジェクト全体用の画像表示ツールを優先して呼び出してください。
 利用可能なツールと対応するプロジェクトは以下の通りです:
+- show-personal-projects-images: 個人開発プロジェクト全体（Lime Seeds / SWiT Study / BiPick）の代表画像を表示
 - show-limeseeds-images: Lime Seeds の画像を表示
 - show-swit-study-images: SWiT Study の画像を表示
 - show-bipick-images: BiPick の画像を表示

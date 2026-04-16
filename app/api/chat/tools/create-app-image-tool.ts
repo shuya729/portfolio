@@ -14,12 +14,14 @@ const emptyInputSchema = jsonSchema<EmptyInput>({
 });
 
 const descriptions: Record<AppImageToolName, string> = {
+	"show-personal-projects-images":
+		"個人開発プロジェクト全体の代表画像を横並びの画像ギャラリーとして表示する。Lime Seeds、SWiT Study、BiPick を横断して、個人開発の一覧、代表作、開発経験全体の画像やスクリーンショットを見せる必要があるときに使う。",
 	"show-swit-study-images":
-		"Swit Study のスクリーンショットを横並びの画像ギャラリーとして表示する。Swit Study の画面、画像、スクリーンショットを見せる必要があるときに使う。",
+		"SWiT Study のスクリーンショットを横並びの画像ギャラリーとして表示する。SWiT Study の画面、画像、スクリーンショットを見せる必要があるときに使う。",
 	"show-bipick-images":
 		"BiPick のスクリーンショットを横並びの画像ギャラリーとして表示する。BiPick の画面、画像、スクリーンショットを見せる必要があるときに使う。",
 	"show-limeseeds-images":
-		"Limeseeds のスクリーンショットを横並びの画像ギャラリーとして表示する。Limeseeds の画面、画像、スクリーンショットを見せる必要があるときに使う。",
+		"Lime Seeds のスクリーンショットを横並びの画像ギャラリーとして表示する。Lime Seeds の画面、画像、スクリーンショットを見せる必要があるときに使う。",
 	"show-text-count-images":
 		"Text Count のスクリーンショットを画像ギャラリーとして表示する。Text Count の画面、画像、スクリーンショットを見せる必要があるときに使う。",
 	"show-focory-images":

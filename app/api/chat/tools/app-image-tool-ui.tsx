@@ -29,6 +29,9 @@ const createAppImageToolUI = (toolName: AppImageToolName) =>
 export const SwitStudyImagesToolUI = createAppImageToolUI(
 	"show-swit-study-images",
 );
+export const PersonalProjectsImagesToolUI = createAppImageToolUI(
+	"show-personal-projects-images",
+);
 export const BipickImagesToolUI = createAppImageToolUI("show-bipick-images");
 export const LimeseedsImagesToolUI = createAppImageToolUI(
 	"show-limeseeds-images",
@@ -41,6 +44,7 @@ export const FocoryImagesToolUI = createAppImageToolUI("show-focory-images");
 export const AppImageToolUIs = () => {
 	return (
 		<>
+			<PersonalProjectsImagesToolUI />
 			<SwitStudyImagesToolUI />
 			<BipickImagesToolUI />
 			<LimeseedsImagesToolUI />
