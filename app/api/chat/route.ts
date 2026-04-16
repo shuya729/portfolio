@@ -1,5 +1,6 @@
 import { openai } from "@ai-sdk/openai";
 import { convertToModelMessages, streamText, type UIMessage } from "ai";
+import { SYSTEM_PROMPT } from "./prompts/system-prompt";
 import { appImageTools } from "./tools";
 
 export async function POST(req: Request) {
@@ -7,8 +8,7 @@ export async function POST(req: Request) {
 
 	const result = streamText({
 		model: openai.responses("gpt-5-mini"),
-		system:
-			"あなたは Shuya のポートフォリオサイトのアシスタントです。アプリの画面画像、スクリーンショット、ロゴを見せる必要がある場合は、対応する画像表示ツールを使ってください。",
+		system: SYSTEM_PROMPT,
 		messages: await convertToModelMessages(messages),
 		tools: appImageTools,
 		providerOptions: {
