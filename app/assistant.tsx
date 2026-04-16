@@ -6,6 +6,7 @@ import {
 	useChatRuntime,
 } from "@assistant-ui/react-ai-sdk";
 import { lastAssistantMessageIsCompleteWithToolCalls } from "ai";
+import { AppImageToolUIs } from "@/app/api/chat/tools/app-image-tool-ui";
 import { Thread } from "@/components/assistant-ui/thread";
 
 export const Assistant = () => {
@@ -18,6 +19,7 @@ export const Assistant = () => {
 
 	return (
 		<AssistantRuntimeProvider runtime={runtime}>
+			<AppImageToolUIs />
 			<main className="h-dvh w-full overflow-hidden bg-background">
 				<Thread />
 			</main>
