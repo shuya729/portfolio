@@ -75,8 +75,9 @@ const AppImageGalleryView = ({
 								alt={image.alt}
 								fill
 								sizes={`${image.displayWidth}px`}
-								className={`object-contain transition-opacity ${isLoading ? "opacity-60" : "opacity-100"
-									}`}
+								className={`object-contain transition-opacity ${
+									isLoading ? "opacity-60" : "opacity-100"
+								}`}
 							/>
 						</div>
 					))}
