@@ -7,6 +7,7 @@ import {
 	ErrorPrimitive,
 	MessagePrimitive,
 	SuggestionPrimitive,
+	ThreadListPrimitive,
 	ThreadPrimitive,
 	useAuiState,
 } from "@assistant-ui/react";
@@ -41,6 +42,7 @@ export const Thread: FC = () => {
 				["--composer-padding" as string]: "10px",
 			}}
 		>
+			<ThreadHeader />
 			<ThreadPrimitive.Viewport
 				turnAnchor="top"
 				className="aui-thread-viewport relative flex flex-1 flex-col overflow-x-auto overflow-y-scroll scroll-smooth px-4 pt-4"
@@ -59,6 +61,25 @@ export const Thread: FC = () => {
 				</ThreadPrimitive.ViewportFooter>
 			</ThreadPrimitive.Viewport>
 		</ThreadPrimitive.Root>
+	);
+};
+
+const ThreadHeader: FC = () => {
+	return (
+		<AuiIf condition={(s) => !s.thread.isEmpty}>
+			<header className="flex h-14 shrink-0 items-center border-b bg-background px-4">
+				<ThreadListPrimitive.New asChild>
+					<Button
+						type="button"
+						variant="ghost"
+						className="h-9 px-2 font-semibold text-base"
+						aria-label="新規スレッドを作成"
+					>
+						Shuya&apos;s Portfolio
+					</Button>
+				</ThreadListPrimitive.New>
+			</header>
+		</AuiIf>
 	);
 };
 
