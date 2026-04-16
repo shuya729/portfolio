@@ -23,6 +23,7 @@ import {
 	RefreshCwIcon,
 	SquareIcon,
 } from "lucide-react";
+import Link from "next/link";
 import type { FC } from "react";
 import { MarkdownText } from "@/components/assistant-ui/markdown-text";
 import { Reasoning } from "@/components/assistant-ui/reasoning";
@@ -31,7 +32,6 @@ import { TooltipIconButton } from "@/components/assistant-ui/tooltip-icon-button
 import { GitHubIcon } from "@/components/icons/github";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
 
 export const Thread: FC = () => {
 	return (
@@ -48,7 +48,7 @@ export const Thread: FC = () => {
 				turnAnchor="top"
 				className="aui-thread-viewport relative flex flex-1 flex-col overflow-x-auto overflow-y-scroll scroll-smooth px-4 pt-4"
 			>
-				<AuiIf condition={(s) => s.thread.isEmpty}>
+				<AuiIf condition={(s) => !(s.thread.messages.length > 0)}>
 					<ThreadWelcome />
 				</AuiIf>
 
@@ -67,7 +67,7 @@ export const Thread: FC = () => {
 
 const ThreadHeader: FC = () => {
 	return (
-		<AuiIf condition={(s) => !s.thread.isEmpty}>
+		<AuiIf condition={(s) => s.thread.messages.length > 0}>
 			<header className="flex h-14 shrink-0 items-center border-b bg-background px-4">
 				<ThreadListPrimitive.New asChild>
 					<Button
