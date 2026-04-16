@@ -1,0 +1,16 @@
+{
+	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+	"files": {
+		"includes": [
+			"app/**/*.ts",
+			"app/**/*.tsx",
+			"components/**/*.ts",
+			"components/**/*.tsx",
+			"lib/**/*.ts",
+			"lib/**/*.tsx",
+			"hooks/**/*.ts",
+			"hooks/**/*.tsx",
+			"types/**/*.ts"
+		]
+	}
+}
