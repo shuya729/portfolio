@@ -89,11 +89,13 @@ const ThreadWelcome: FC = () => {
 		<div className="aui-thread-welcome-root mx-auto my-auto flex w-full max-w-(--thread-max-width) grow flex-col">
 			<div className="aui-thread-welcome-center flex w-full grow flex-col items-center justify-center">
 				<div className="aui-thread-welcome-message flex size-full flex-col justify-center px-4">
-					<h1 className="aui-thread-welcome-message-inner fade-in slide-in-from-bottom-1 animate-in fill-mode-both font-semibold text-2xl duration-200">
-						Hello there!
+					<h1 className="aui-thread-welcome-message-inner fade-in slide-in-from-bottom-1 animate-in fill-mode-both max-w-2xl text-balance font-semibold text-2xl leading-tight duration-200 @md:text-3xl">
+						ようこそ Shuya&apos;s Portfolio へ
 					</h1>
-					<p className="aui-thread-welcome-message-inner fade-in slide-in-from-bottom-1 animate-in fill-mode-both text-muted-foreground text-xl delay-75 duration-200">
-						How can I help you today?
+					<p className="aui-thread-welcome-message-inner fade-in slide-in-from-bottom-1 animate-in fill-mode-both mt-3 max-w-2xl text-muted-foreground text-pretty text-base leading-7 delay-75 duration-200 @md:text-lg">
+						このサイトでは、私の経歴や開発実績などについてチャット形式で確認できます。
+						<br />
+						気になることを自由に質問してください。
 					</p>
 				</div>
 			</div>
@@ -136,17 +138,17 @@ const Composer: FC = () => {
 				className="flex w-full flex-col gap-2 rounded-(--composer-radius) border bg-background p-(--composer-padding) transition-shadow focus-within:border-ring/75 focus-within:ring-2 focus-within:ring-ring/20"
 			>
 				<ComposerPrimitive.Input
-					placeholder="Send a message..."
+					placeholder="質問する"
 					className="aui-composer-input max-h-32 min-h-10 w-full resize-none bg-transparent px-1.75 py-1 text-sm outline-none placeholder:text-muted-foreground/80"
 					rows={1}
 					autoFocus
-					aria-label="Message input"
+					aria-label="質問を入力"
 				/>
 				<ComposerAction />
 			</div>
 			<p className="mt-2 px-2 text-muted-foreground text-xs leading-relaxed">
-				本アプリケーションでは、入力データは OpenAI
-				API による処理目的に限り送信され、それ以外の用途での外部送信および保存は一切行いません。
+				本アプリケーションでは、入力データは OpenAI API
+				による処理目的に限り送信され、それ以外の用途での外部送信および保存は一切行いません。
 			</p>
 		</ComposerPrimitive.Root>
 	);
