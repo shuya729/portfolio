@@ -276,13 +276,15 @@ const AssistantMessage: FC = () => {
 			data-role="assistant"
 		>
 			<div className="aui-assistant-message-content wrap-break-word px-2 text-foreground leading-relaxed">
-				<MessagePrimitive.Parts components={{
-					Text: MarkdownText,
-					Reasoning,
-					tools: {
-						Fallback: ToolFallback,
-					},
-				}} />
+				<MessagePrimitive.Parts
+					components={{
+						Text: MarkdownText,
+						Reasoning,
+						tools: {
+							Fallback: ToolFallback,
+						},
+					}}
+				/>
 				<MessageError />
 			</div>
 
