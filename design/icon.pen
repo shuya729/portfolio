@@ -1,0 +1,46 @@
+{
+  "version": "2.11",
+  "children": [
+    {
+      "type": "frame",
+      "id": "Jkqhe",
+      "x": 100,
+      "y": 100,
+      "name": "logo",
+      "clip": true,
+      "width": 80,
+      "height": 80,
+      "fill": "#FFFFFF",
+      "cornerRadius": 16,
+      "stroke": {
+        "align": "inside",
+        "thickness": 2,
+        "fill": "#DDDDDD"
+      },
+      "layout": "none",
+      "children": [
+        {
+          "type": "text",
+          "id": "DtLTM",
+          "x": 26,
+          "y": 16,
+          "fill": "#1A1A1A",
+          "content": "S",
+          "fontFamily": "Inter",
+          "fontSize": 40,
+          "fontWeight": "700"
+        },
+        {
+          "type": "rectangle",
+          "id": "yCZLq",
+          "x": 40,
+          "y": -3.573593128807147,
+          "rotation": -315,
+          "fill": "#DBA634",
+          "width": 60,
+          "height": 60
+        }
+      ]
+    }
+  ]
+}
