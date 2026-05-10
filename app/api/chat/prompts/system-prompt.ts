@@ -30,12 +30,12 @@ const ASSISTANT_INSTRUCTIONS = `
 個人開発プロジェクト全体、複数の代表作、開発経験の一覧について質問された際は、個別プロジェクトではなく個人開発プロジェクト全体用の画像表示ツールを優先して呼び出してください。
 
 利用可能なツールと対応するプロジェクト:
-- show-personal-projects-images: 個人開発プロジェクト全体（Lime Seeds / SWiT Study / BiPick）の代表画像を表示
+- show-personal-projects-images: 個人開発プロジェクト全体（Lime Seeds / SWiT Study / BiPick / AI文字数調整くん / Focory）の代表画像を表示
 - show-limeseeds-images: Lime Seeds の画像を表示
 - show-swit-study-images: SWiT Study の画像を表示
 - show-bipick-images: BiPick の画像を表示
 - show-text-count-images: AI文字数調整くん の画像を表示
-- show-focory-images: Focory の画像を表示
+- show-focory-images: Focory のロゴとスクリーンショットを表示
 </assistant_instructions>
 `;
 
@@ -70,7 +70,8 @@ const PORTFOLIO_CONTEXT = `
 6. 2択の質問共有サービス「BiPick」をリリース
 7. Nehan株式会社で長期インターンを開始
 8. 文字数調整Webサービス「AI文字数調整くん」をリリース
-9. 現在開発中: Focory、My-template
+9. AIが声がけする集中タイマー「Focory」をリリース
+10. 現在開発中: My-template
 
 # 個人開発プロジェクト
 
@@ -163,20 +164,27 @@ const PORTFOLIO_CONTEXT = `
   - GitHub: https://github.com/shuya729/text-count
   - Web: https://ai-chousei.com/
 
-## Focory（現在作成中）
-- 概要: スマホを触らず勉強に集中するための学習支援アプリ。タイマーをスタートした後にスマホを触ったりアプリから離脱したりすると、AIがユーザーの「目的」「理由」「好みの口調」に合わせたパーソナライズされた通知を送り、集中状態へ引き戻す
-- 背景: 前身プロジェクトSWiT Studyでは「フレンドと勉強時間を共有する」というアイデアを試したが、想定よりユーザーに響かなかった。そこでFocoryでは方針を転換し、人ではなく「AIによる監視」を軸にしたひとり集中体験を提供。フレンドを探す必要がなく、他人の目がなくてもサボれず、AIが「今のあなた」に合った言葉で伴走してくれる
+## Focory
+- 概要: AIがあなただけの言葉で声をかけてくれる、ひとり集中のための学習タイマー。「あと5分だけ」をなくし、勉強・作業・読書へまっすぐ向かう習慣を後押しする
+- 状態: 公式サイト、App Store、Google Playで公開済み
+- 背景: 前身プロジェクトSWiT Studyでは「フレンドと勉強時間を共有する」というアイデアを試したが、想定よりユーザーに響かなかった。そこでFocoryでは方針を転換し、フレンドを探したり勉強時間を共有したりしなくても、AIが「今のあなた」に合った言葉で集中を後押しするひとり集中体験を提供
+- こんな人におすすめ: スマホを触らずに勉強・作業に集中したい人、ポモドーロタイマーを習慣化したい受験生・学生・社会人、在宅ワーク・資格勉強・読書・執筆・プログラミング学習に集中したい人、ひとりだとサボってしまうが勉強時間の共有には抵抗がある人
 - 主な機能:
-  - 集中タイマー: ポモドーロ形式のシンプルなタイマー。開始後にスマホを触るとAIが介入し、設定に応じたリアルタイムのメッセージが表示される
-  - AIによるパーソナライズ監視: ユーザーがアプリから離脱した瞬間を検知し通知で声がけ。メッセージは「なぜそれをやりたいのか」という目的と、選択したAIの振る舞い（やさしい/厳しい/明るい/落ち着き/おもしろい/クール）に基づいて生成
-  - 学習ログ（ヒートマップ）: 日々の集中時間をカレンダー形式のヒートマップで可視化。色の濃さで学習量が一目でわかり継続のモチベーションになる
-  - 設定: 目的（何に集中したいか）、なぜ（その理由を書き出しAIが合った声がけをできるようにする）、振る舞い（AIの性格・口調の選択）
+  - シンプルな集中タイマー: 余計な設定は不要。スタートを押すだけで、すぐに集中モードへ入れる
+  - AIのひと言で集中へ引き戻す: タイマー中にアプリから離れた瞬間にプッシュ通知が届き、テンプレートではないユーザー専用のメッセージで集中へ戻れる
+  - 6種類から選べるAIの性格: サポーター / ライバル / クール / コーチ / 剣士 / いたずらっ子 から、その日の気分に合わせて切り替えられる
+  - ヒートマップで継続を可視化: 日々の集中時間をカレンダーで色濃く積み上げ、続ける自信に変える
+  - 目的と「なぜ」をAIが活用: 志望校合格・資格取得・副業など、ユーザーの想いを踏まえた言葉で背中を押す
 - 使用技術:
   - モバイル: React Native + Expo (SDK 54) / Expo Router / NativeWind / TanStack Query + openapi-react-query / Better Auth (Expo) / Drizzle ORM + expo-sqlite（ローカルDB）/ Expo Notifications
-  - バックエンド: Hono + hono-openapi / Cloudflare Workers / Drizzle ORM + Postgres / Better Auth / Upstash Redis（レート制限・キャッシュ）/ Zod
-  - 共通基盤: TypeScript / pnpm workspaces / Biome・Ultracite / OpenAPI経由でモバイル⇄APIの型共有
+  - Webランディング: Next.js 16 (App Router) / React 19 / Tailwind CSS v4 / shadcn/ui (Radix UI・Base UI) / OpenNext for Cloudflare / TanStack Query + openapi-react-query
+  - バックエンド: Hono + hono-openapi / Cloudflare Workers / Drizzle ORM + Postgres（Hyperdrive経由）/ Better Auth + @better-auth/drizzle-adapter / Upstash Redis（レート制限・キャッシュ）/ Zod / Vertex AI・Gemini / Expo Push Notifications
+  - 共通基盤: TypeScript / pnpm workspaces / Biome・Ultracite / OpenAPI経由でモバイル・Web⇄APIの型共有
 - Links:
+  - 公式サイト: https://focory.com/
   - GitHub: https://github.com/shuya729/focory
+  - iOS: https://apps.apple.com/jp/app/focory-aiが声がけする集中タイマー/id6767747914
+  - Android: https://play.google.com/store/apps/details?id=com.focory.app
 
 ## My-template（現在作成中）
 - 概要: AI駆動の開発においても保守性・可読性を維持することを目的とした、フルスタック（Web / Mobile / Backend）のテンプレートアプリケーション
