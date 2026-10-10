@@ -282,7 +282,7 @@ const PORTFOLIO_CONTEXT = `
   - フレームワーク: Next.js 16 (App Router / Turbopack)
   - UIライブラリ: React 19 / Radix UI / shadcn/ui
   - チャットUI: @assistant-ui/react / Vercel AI SDK
-  - AIモデル: OpenAI GPT-5 mini（@ai-sdk/openai）
+  - AIモデル: OpenAI GPT-6 Luna（@ai-sdk/openai）
   - レート制限: Upstash Redis
   - スタイリング: Tailwind CSS v4
   - 状態管理: Zustand

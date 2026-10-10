@@ -34,7 +34,7 @@ export async function POST(req: Request) {
 	const { messages }: { messages: UIMessage[] } = await req.json();
 
 	const result = streamText({
-		model: openai.responses("gpt-5-mini"),
+		model: openai.responses("gpt-6-luna"),
 		system: SYSTEM_PROMPT,
 		messages: await convertToModelMessages(messages),
 		tools: appImageTools,

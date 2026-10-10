@@ -15,7 +15,7 @@
 | フレームワーク | [Next.js](https://nextjs.org/) 16 (App Router / Turbopack) |
 | UI ライブラリ | [React](https://react.dev/) 19 / [Radix UI](https://www.radix-ui.com/) / [shadcn/ui](https://ui.shadcn.com/) |
 | チャット UI | [@assistant-ui/react](https://github.com/assistant-ui/assistant-ui) / [Vercel AI SDK](https://sdk.vercel.ai/) |
-| AI モデル | OpenAI GPT-5 mini（`@ai-sdk/openai`） |
+| AI モデル | OpenAI GPT-6 Luna（`@ai-sdk/openai`） |
 | レート制限 | [Upstash Redis](https://upstash.com/)（IP ベース、毎時 60 リクエスト） |
 | スタイリング | [Tailwind CSS](https://tailwindcss.com/) v4 |
 | 状態管理 | [Zustand](https://zustand.docs.pmnd.rs/) |
